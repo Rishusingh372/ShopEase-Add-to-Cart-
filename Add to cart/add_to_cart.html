@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-shopping-bag"></i>
+        ShopEase
+      </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="../Addto Cart/add_to_cart.html">Products</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="profile">
+    <a href="../LocalStorage/userdashboard.html">User Profile</a>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button onclick="handleSearch()">Search</button>
+    <button onclick="clearSearch()">Clear</button>
+  </div>
+
+  <div class="add-product">
+    <h2>Add New Product</h2>
+    ID: <input type="text" id="id"><br>
+    Name: <input type="text" id="name"><br>
+    Price: <input type="text" id="price"><br>
+    Image URL: <input type="text" id="image"><br>
+    Category: <input type="text" id="category"><br>
+    <button id="add" onclick="addNewProduct()">Add Product</button>
+  </div>
+
+  <button id="btn_print1" onclick="toggleAddProductForm()">Add New Product</button>
+
+  <div style="display: flex; margin-top: 30px;">
+    <div id="prod"></div>
+    <div id="cart">
+      <h2>Your Cart</h2>
+      <p>Your cart is empty</p>
+        <!-- <button id="but_print" onclick="printCart()">Print Cart</button> -->
+    </div>
+    
+  </div>
+
+  <button id="but_print" onclick="printCart()">Print Cart</button>
+
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>ShopEase</h3>
+        <p>Your trusted online shopping destination offering quality products and exceptional service.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="add_to_cart.html">Products</a></li>
+          <li><a href="../LocalStorage/Login.html">Login</a></li>
+          <li><a href="../LocalStorage/registation.html">Register</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>User Pages</h3>
+        <ul>
+          <li><a href="../LocalStorage/userdashboard.html">Dashboard</a></li>
+          <li><a href="../LocalStorage/update.html">Update Profile</a></li>
+          <li><a href="add_to_cart.html">Shopping Cart</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Bhopal , India</li>
+          <li><i class="fas fa-phone"></i> 9341897481</li>
+          <li><i class="fas fa-envelope"></i> singhrishukumar008@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2025 ShopEase. All rights reserved.</p>
+      <p>Designed by <a href="https://rishusingh372.github.io/Portfolio/">Rishu Kumar Singh</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js" type="module"></script>
+  <script>
+    function printCart() {
+      window.print();
+    }
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      const icon = mobileMenuToggle.querySelector('i');
+      if (mainNav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  </script>
+</body>
+
+</html>
